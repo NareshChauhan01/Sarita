@@ -22,6 +22,14 @@ function reloadPuzzle() {
   totalClicks = 0;
   document.querySelector('#clicks').textContent = 'Clicks: ' + totalClicks;
   randomizeImage();
+
+  // Reset puzzle container position and transform to initial state
+  const puz = document.querySelector('#puz');
+  puz.style.top = '25%';
+  puz.style.left = '50%';
+  puz.style.transform = 'translate(-50%, -50%)';
+  puz.style.transition = 'top 0.5s ease, left 0.5s ease, transform 0.5s ease';
+  puz.style.border = '3px dashed lightgray';
 }
 
 // Handle clicks on draggable pieces to count and highlight
@@ -50,7 +58,12 @@ document.querySelectorAll('#puz i').forEach(el => {
         const puz = document.querySelector('#puz');
         puz.classList.add('allDone');
         puz.style.border = 'none';
-        puz.style.animation = 'allDone 1s linear forwards';
+
+        // Move to center with scale
+        puz.style.top = '50%';
+        puz.style.left = '50%';
+        puz.style.transform = 'translate(-50%, -50%) scale(1.2)';
+        puz.style.transition = 'top 1s ease, left 1s ease, transform 1s ease';
 
         setTimeout(() => {
           alert('Puzzle completed! Press Restart to play again.');
@@ -81,7 +94,12 @@ function drop(ev) {
       const puz = document.querySelector('#puz');
       puz.classList.add('allDone');
       puz.style.border = 'none';
-      puz.style.animation = 'allDone 1s linear forwards';
+
+      // Move to center with scale
+      puz.style.top = '50%';
+      puz.style.left = '50%';
+      puz.style.transform = 'translate(-50%, -50%) scale(1.2)';
+      puz.style.transition = 'top 1s ease, left 1s ease, transform 1s ease';
 
       // setTimeout(() => {
       //   alert('Puzzle completed! Press Restart to play again.');
