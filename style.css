@@ -14,13 +14,21 @@ body {
   font-family: monospace, monospace;
 }
 
+#birthdayMessage {
+  display: none;
+  text-align: center;
+  color: #65cb95;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  font-family: cursive;
+}
+
 #puz,
 #puzz {
   border-radius: var(--border-radius) 0 var(--border-radius) 0;
   user-select: none;
 }
 
-/* PUZZLE BOARD - 3x3 grid */
 #puz {
   width: 300px;
   height: 300px;
@@ -36,7 +44,6 @@ body {
   grid-template-rows: repeat(3, 1fr);
   gap: 0;
   position: absolute;
-  border-radius: var(--border-radius) 0 var(--border-radius) 0;
 }
 
 #puz i {
@@ -45,7 +52,6 @@ body {
   outline: 1px dashed lightgray;
 }
 
-/* DRAGGABLE PIECES - 3x3 grid fixed at bottom center */
 #puzz {
   width: 300px;
   height: 300px;
@@ -57,7 +63,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 10px;
-  border-radius: var(--border-radius) 0 var(--border-radius) 0;
   background: transparent;
   pointer-events: auto;
   z-index: 1000;
@@ -73,11 +78,8 @@ body {
   cursor: move;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
-  position: static;
-  /* Remove fixed */
 }
 
-/* Background positions for each piece */
 .first {
   border-top-left-radius: var(--border-radius);
   background-position: left top !important;
@@ -148,12 +150,11 @@ body {
 
 #clicks {
   font-size: 12px;
-  font-family: monospace;
   position: absolute;
   bottom: 5px;
   right: 5px;
   user-select: none;
-  color: #333;
+  color: green;
 }
 
 button#resetBtn {
@@ -161,18 +162,17 @@ button#resetBtn {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 8px 16px;
+  padding: 10px 18px;
   font-size: 14px;
   cursor: pointer;
   border-radius: 6px;
   border: none;
-  background: #333;
+  background: green;
   color: white;
-  user-select: none;
   z-index: 1100;
+  font-family: sans-serif;
 }
 
-/* === MOBILE RESPONSIVE STYLES === */
 @media (max-width: 400px) {
   #puz {
     width: 240px;
@@ -191,15 +191,20 @@ button#resetBtn {
   }
 
   button#resetBtn {
-    bottom: 90px;
-    font-size: 12px;
-    padding: 6px 12px;
     bottom: 30px;
+    font-size: 12px;
+    padding: 8px 14px;
   }
 
   #clicks {
     font-size: 10px;
     bottom: 10px;
     right: 10px;
+  }
+
+  #birthdayMessage {
+    font-size: 1rem;
+    margin-top: 3rem !important;
+    margin: 0 5px 5px 0;
   }
 }
