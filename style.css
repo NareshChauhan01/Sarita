@@ -1,0 +1,141 @@
+:root {
+  --color: lightgray;
+  --border-radius: 10px;
+  --image: url('./Photo2.jpg');
+  /* Your local image */
+}
+
+body {
+  background: #efefef;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:cursive;
+}
+
+#puz,
+#puzz {
+  position: absolute;
+  border-radius: var(--border-radius);
+  user-select: none;
+}
+
+#puz {
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 3px dashed lightgray; */
+  overflow: hidden;
+}
+
+#puzz {
+  left: 0;
+  top: 0;
+}
+
+#puz i,
+#puzz i {
+  width: 100px;
+  height: 100px;
+}
+
+#puz i {
+  float: left;
+  outline: 1px dashed lightgray;
+}
+
+#puzz i {
+  position: absolute;
+  background: var(--color);
+  background-image: var(--image);
+  background-size: 300px 300px;
+  cursor: move;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.first {
+  background-position: left top !important;
+}
+
+.secon {
+  background-position: center top !important;
+}
+
+.third {
+  background-position: right top !important;
+}
+
+.fourt {
+  background-position: left center !important;
+}
+
+.fifth {
+  background-position: center center !important;
+}
+
+.sixth {
+  background-position: right center !important;
+}
+
+.seven {
+  background-position: left bottom !important;
+}
+
+.eight {
+  background-position: center bottom !important;
+}
+
+.ninth {
+  background-position: right bottom !important;
+}
+
+.clicked {
+  box-shadow: 0 0 0 4px gray !important;
+}
+
+.dropped {
+  background: var(--color);
+  background-image: var(--image);
+  background-size: 300px 300px;
+}
+
+.done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.allDone {
+  animation: allDone 1s linear forwards;
+  border: 3px solid lightgray !important;
+}
+
+.allDone i {
+  outline: 0 !important;
+}
+
+@keyframes allDone {
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+#clicks {
+  font-size: 12px;
+  font-family: monospace;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#message {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: green;
+  font-weight: bold;
+  display: none;
+}
