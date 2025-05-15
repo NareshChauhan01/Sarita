@@ -1,7 +1,7 @@
 :root {
   --color: lightgray;
   --border-radius: 10px;
-  --image: url('./Photo2.jpg');
+  --image: url('./assets/photo2.jpg');
   /* Your local image */
 }
 
