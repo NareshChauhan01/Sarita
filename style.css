@@ -16,45 +16,68 @@ body {
 
 #puz,
 #puzz {
-  position: absolute;
   border-radius: var(--border-radius) 0 var(--border-radius) 0;
   user-select: none;
 }
 
+/* PUZZLE BOARD - 3x3 grid */
 #puz {
   width: 300px;
   height: 300px;
-  top: 50%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 3px dashed lightgray;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#puzz {
-  border: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  position: absolute;
+  border-radius: var(--border-radius) 0 var(--border-radius) 0;
 }
 
 #puz i {
-  float: left;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   outline: 1px dashed lightgray;
 }
 
+/* DRAGGABLE PIECES - 3x3 grid fixed at bottom center */
+#puzz {
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  top: 48%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  border-radius: var(--border-radius) 0 var(--border-radius) 0;
+  background: transparent;
+  pointer-events: auto;
+  z-index: 1000;
+  border: 0;
+}
+
 #puzz i {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   background: var(--color);
   background-image: var(--image);
   background-size: 300px 300px;
   cursor: move;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  position: fixed;
+  border-radius: 6px;
+  position: static;
+  /* Remove fixed */
 }
 
+/* Background positions for each piece */
 .first {
   border-top-left-radius: var(--border-radius);
   background-position: left top !important;
@@ -133,20 +156,9 @@ body {
   color: #333;
 }
 
-#message {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: green;
-  font-size: 18px;
-  font-family: monospace;
-  text-align: center;
-}
-
 button#resetBtn {
   position: fixed;
-  bottom: 50px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   padding: 8px 16px;
@@ -157,30 +169,32 @@ button#resetBtn {
   background: #333;
   color: white;
   user-select: none;
+  z-index: 1100;
 }
 
 /* === MOBILE RESPONSIVE STYLES === */
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   #puz {
     width: 240px;
     height: 240px;
   }
 
-  #puz i,
-  #puzz i {
-    width: 80px;
-    height: 80px;
-    background-size: 240px 240px;
+  #puzz {
+    width: 240px;
+    height: 240px;
+    bottom: 5px;
   }
 
-  .dropped {
-    background-size: 240px 240px !important;
+  #puz i,
+  #puzz i {
+    background-size: 240px 240px;
   }
 
   button#resetBtn {
     bottom: 90px;
     font-size: 12px;
     padding: 6px 12px;
+    bottom: 30px;
   }
 
   #clicks {
