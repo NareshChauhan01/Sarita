@@ -12,6 +12,7 @@ body {
   height: 100vh;
   position: relative;
   font-family: monospace, monospace;
+  overflow-y: hidden;
 }
 
 #birthdayMessage {
